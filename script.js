@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", inicializarCarrossel);
    ============================================================== */
 
 const CURRENT_SONG = {
-    title: "Tua Presença",
-    artist: "Paulo Neto",
+    title: "Ah, Jesus",
+    artist: "Julliany Souza",
     cover: null
 };
 
@@ -71,6 +71,7 @@ const CURRENT_SONG = {
 
 const audio = document.getElementById("radioAudio");
 const playButton = document.getElementById("playButton");
+const playIcon = document.getElementById("playIcon");
 const playerStatus = document.getElementById("songTitle");
 const artistName = document.getElementById("artistName");
 const albumCover = document.getElementById("albumCover");
@@ -157,7 +158,10 @@ async function atualizarDadosPlayer(tituloTexto, artistaTexto) {
 
     playerStatus.textContent = tituloTexto;
     artistName.textContent = artistaTexto || "Igreja Vida Plena";
-    albumCover.src = LOGO_IGREJA;
+
+    if (!albumCover.src || albumCover.src === "" || albumCover.src.includes("unsplash")) {
+        albumCover.src = LOGO_IGREJA;
+    }
 
     if (CURRENT_SONG.cover) {
         albumCover.src = CURRENT_SONG.cover;
@@ -165,7 +169,9 @@ async function atualizarDadosPlayer(tituloTexto, artistaTexto) {
     }
 
     const capa = await buscarCapaNaInternet(tituloTexto, artistaTexto);
-    albumCover.src = capa ? capa : LOGO_IGREJA;
+    if (capa) {
+        albumCover.src = capa;
+    }
 }
 
 
@@ -238,16 +244,16 @@ playButton.addEventListener("click", function () {
             audio.src = STREAM_URL;
         }
 
-        playButton.textContent = "❚❚";
+        playIcon.src = "img/icons/pause.png";
         playButton.classList.add("playing");
 
         audio.play().catch(function (error) {
-            playButton.textContent = "▶";
+            playIcon.src = "img/icons/play.png";
             playButton.classList.remove("playing");
         });
     } else {
         audio.pause();
-        playButton.textContent = "▶";
+        playIcon.src = "img/icons/play.png";
         playButton.classList.remove("playing");
     }
 });
@@ -267,11 +273,11 @@ volume.addEventListener("input", function () {
    ============================================================== */
 
 audio.addEventListener("pause", function () {
-    playButton.textContent = "▶";
+    playIcon.src = "img/icons/play.png";
     playButton.classList.remove("playing");
 });
 
 audio.addEventListener("playing", function () {
-    playButton.textContent = "❚❚";
+    playIcon.src = "img/icons/pause.png";
     playButton.classList.add("playing");
 });
