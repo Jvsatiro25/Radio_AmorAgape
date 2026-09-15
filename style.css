@@ -35,7 +35,7 @@ body {
     color: var(--texto);
     line-height: 1.6;
     overflow-x: hidden;
-    padding-bottom: 100px; /* Espaço para o player fixo inferior */
+    padding-bottom: 100px;
 }
 
 img {
@@ -53,7 +53,7 @@ button {
 }
 
 /* =========================================================
-   HEADER (NAVBAR FIXA COM BLUR)
+   HEADER
 ========================================================= */
 header {
     position: sticky;
@@ -82,16 +82,23 @@ header {
 }
 
 .logo {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+    width: auto;
+    height: auto;
+}
+
+.logo img {
+    height: 58px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .logo-text strong {
@@ -136,7 +143,6 @@ nav a:hover {
     background: var(--bg-base);
 }
 
-/* Background com gradiente de cor translúcido em cima de todo o section */
 .radio-gradient-bg {
     position: absolute;
     inset: 0;
@@ -222,20 +228,27 @@ nav a:hover {
 }
 
 .album {
+    position: relative;
     width: 58px;
     height: 58px;
     flex-shrink: 0;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    background: var(--azul-primario);
+    background-color: var(--azul-primario);
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.1);
 }
 
 .album img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block;
 }
 
 .song-info {
@@ -284,19 +297,20 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 15px;
     transition: all 0.25s ease;
     box-shadow: 0 4px 15px rgba(155, 103, 2, 0.4);
+}
+
+.play-button img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
 }
 
 .play-button:hover {
     background: linear-gradient(135deg, #b57902, var(--accent-gold));
     transform: scale(1.08);
     box-shadow: 0 6px 20px rgba(155, 103, 2, 0.6);
-}
-
-.play-button.playing {
-    font-size: 13px;
 }
 
 .volume {
