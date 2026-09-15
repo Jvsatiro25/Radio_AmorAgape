@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Rádio | Igreja</title>
+    <meta name="description" content="Web Rádio da Igreja — Louvores, Palavra e Adoração 24 horas.">
+    
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================= -->
+<header>
+    <div class="header-container">
+        <a href="#" class="logo-area">
+            <div class="logo">
+                ✝
+            </div>
+            <div class="logo-text">
+                <strong>Igreja Vida Plena</strong>
+                <span>Juntos em Cristo</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="#radio">Rádio</a>
+            <a href="#noticias">Notícias</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ============================================================
+     RÁDIO (COM CARROSSEL E GRADIENTE DE COR)
+============================================================= -->
+<section class="radio-section" id="radio">
+    <!-- Camada de gradiente de fundo com transparência em todo o section -->
+    <div class="radio-gradient-bg"></div>
+
+    <!-- Carrossel dinâmico controlado pelo JavaScript -->
+    <div class="radio-carousel" id="radioCarousel">
+        <div class="carousel-track" id="carouselTrack">
+            <!-- As imagens do carrossel são inseridas automaticamente pelo script.js -->
+        </div>
+        <div class="carousel-overlay"></div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTEÚDO
+============================================================= -->
+<main>
+    <section class="section" id="noticias">
+        <div class="section-label">Fique por dentro</div>
+        <h2 class="section-title">Avisos e <span>Notícias</span></h2>
+
+        <div class="news-grid">
+            <div class="news-list">
+                <article class="news">
+                    <div class="news-date">
+                        <strong>14</strong>
+                        <small>SET</small>
+                    </div>
+                    <div>
+                        <h3>Culto de Celebração</h3>
+                        <p>Neste domingo teremos nosso culto especial de celebração às 19h.</p>
+                    </div>
+                </article>
+                <article class="news">
+                    <div class="news-date">
+                        <strong>18</strong>
+                        <small>SET</small>
+                    </div>
+                    <div>
+                        <h3>Encontro de Oração</h3>
+                        <p>Participe conosco de uma noite especial de oração e comunhão.</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- PRÓXIMO PREGADOR -->
+            <div class="preacher">
+                <div class="preacher-label">Próximo pregador</div>
+                <h3>Pr. João da Silva</h3>
+                <p>Palavra e reflexão</p>
+                <div class="preacher-time">
+                    <span>Domingo</span>
+                    <strong>19:00</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="eventos">
+        <div class="section-label">Participe conosco</div>
+        <h2 class="section-title">Próximos <span>Eventos</span></h2>
+
+        <div class="events">
+            <article class="event">
+                <div class="event-date">18 SET • 19H</div>
+                <h3>Culto de Oração</h3>
+                <p>Uma noite dedicada à oração, louvor e comunhão.</p>
+            </article>
+            <article class="event">
+                <div class="event-date">21 SET • 19H30</div>
+                <h3>Estudo Bíblico</h3>
+                <p>Estudo da Palavra aberto para toda a comunidade.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="verse">
+        <div class="verse-symbol">✦</div>
+        <p>“A tua palavra é lâmpada para os meus pés e luz para o meu caminho.”</p>
+        <small>Salmos 119:105</small>
+    </section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================= -->
+<footer id="sobre">
+    <strong>Igreja Vida Plena</strong>
+    <br><br>
+    Web Rádio • Louvor • Palavra • Adoração
+    <br><br>
+    © 2026 — Todos os direitos reservados.
+</footer>
+
+<!-- PLAYER FIXO / FLUTUANTE INFERIOR -->
+<div class="player-wrapper is-floating" id="playerWrapper">
+    <div class="player">
+        <!-- CAPA DA MÚSICA / PREGAÇÃO -->
+        <div class="album">
+            <img
+                id="albumCover"
+                src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=300&q=80"
+                alt="Capa da música ou pregação"
+            >
+        </div>
+
+        <!-- INFORMAÇÕES -->
+        <div class="song-info">
+            <small>Tocando agora</small>
+            <div class="song-title" id="songTitle">Não Me Deixe Esquecer</div>
+            <div class="artist" id="artistName">Valesca Mayssa</div>
+        </div>
+
+        <!-- PLAY -->
+        <button class="play-button" id="playButton" aria-label="Tocar rádio">
+            ▶
+        </button>
+
+        <!-- VOLUME -->
+        <div class="volume">
+            <span class="volume-icon">🔊</span>
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+        </div>
+
+        <!-- AO VIVO -->
+        <div class="live">
+            <span class="live-circle"></span>
+            Ao vivo
+        </div>
+    </div>
+</div>
+
+<!-- ELEMENTO DE ÁUDIO -->
+<audio id="radioAudio" preload="none"></audio>
+
+<!-- Link para o arquivo JavaScript externo -->
+<script src="script.js"></script>
+
+</body>
+</html>
